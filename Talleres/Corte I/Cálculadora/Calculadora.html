@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript">
+	window.onload = function(){
+    display=document.getElementById("pantresul");
+}
+x="0";
+xi=1;
+ni=0;
+op="no";
+
+function mostrarnum(num) {
+         if (x=="0" || xi==1  ) {
+            display.innerHTML=num;
+            x=num;
+            }
+         else { 
+            display.innerHTML+=num;
+            x+=num;
+            }
+         xi=0
+         }
+function operaciones(s) {
+         igual()
+         ni=x
+         op=s;
+         xi=1;
+         }	
+function igual() {
+         if (op=="no") {
+            display.innerHTML=x;	
+            }
+         else {
+            sl=ni+op+x;
+            sol=eval(sl)
+            display.innerHTML=sol
+            x=sol;
+            op="no";
+            xi=1;
+            }
+        }
+        function limpiar() {
+         display.innerHTML=0;
+         x="0";
+         ni=0;
+         op="no";
+         }
+	</script>
+	<meta charset="UTF-8">
+	<title>MI CÁLCULADORA</title>
+	<style type="text/css">
+	h1{border:2px solid green; background:black;width:100%;height:45px;text-align:center; font:bold 22px; font-family: "Comic Sans MS", cursive, sans-serif; color: white;}
+	#pantresul{ width: 520px; height: 96px; border-right-width: 4px; border-left-width: 4px; text-align:right; font:bold 50px arial, sans-serif; color: black; background-color: white;}
+	
+	.cuerpocalc{
+    border: 2px solid black; 
+	border-right-width: 4px;
+	border-left-width: 4px;
+	background: Gainsboro;
+	width: 520px;
+    height: 900px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -250px;
+	border-radius: 1em;
+}
+.ucs{
+	border: 1px solid black; 
+	width: 100px;
+    height: 100px;
+    position: relative;
+    top: 20%;
+    left: 20%;
+    margin-right: 2px;
+}
+.dco{
+	border: 1px solid black; 
+	width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 20%;
+    position: relative;
+    margin-right: 2px;
+}
+.tsn{
+	border: 1px solid black; 
+	width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 20%;
+    position: relative;
+    margin-right: 2px;
+}
+.ci{
+	border: 1px solid black; 
+    position: relative;
+    top: 20%;
+    left: 20%;
+    margin-right: 2px;
+    width: 100px;
+    height: 100px;
+    }
+    .ope{
+	border: 1px solid black; 
+    position: relative;
+    top: 20%;
+    left: 10%;
+    margin-right: 2px;
+    width: 100px;
+    height: 100px;
+    }
+    .summa{border:2px solid black; background:Gainsboro;width:100%;height:45px;text-align:center; font:bold 22px; font-family: "Comic Sans MS", cursive, sans-serif; color: black;}
+	</style>
+</head>
+<body>
+	<h1>BIENVENIDO A LA CÁLCULADORA MÁS SIMPLE Y FUNCIONAL DE LA WEB ;)</h1>
+	    <div class="cuerpocalc">
+	    <br>
+	    <div><p id="pantresul">0</p></div>
+	    <br>
+		<div>
+		<button type="button" class="ucs" value= "1" onclick="mostrarnum('1')"><img src="1.png" alt="uno" width="80" height="80"></button>
+		<button class="dco" value= "2" onclick="mostrarnum('2')"><img src="2.png" alt="uno" width="80" height="80"></button>
+		<button class="tsn" value= "3" onclick="mostrarnum('3')"><img src="3.png" alt="uno" width="80" height="80"></button>
+	    </div>
+	    <br>
+		<div>
+		<button class="ucs" value= "4" onclick="mostrarnum('4')"><img src="4.png" alt="uno" width="80" height="80"></button>
+		<button class="dco" value= "5" onclick="mostrarnum('5')" ><img src="5.jpg" alt="uno" width="80" height="80"></button>
+		<button class="tsn" value= "6" onclick="mostrarnum('6')"><img src="6.png" alt="uno" width="80" height="80"></button>
+		</div>
+		<br>
+		<div>
+		<button class="ucs" value= "7" onclick="mostrarnum('7')"><img src="7.jpg" alt="uno" width="80" height="80"></button>
+		<button class="dco" value= "8" onclick="mostrarnum('8')"><img src="8.gif" alt="uno" width="80" height="80"></button>
+		<button class="tsn" value= "9" onclick="mostrarnum('9')"><img src="9.png" alt="uno" width="80" height="80"></button>
+		</div>
+		<br>
+		<div>
+		<button class="ci" value= "0" onclick="mostrarnum('0')"><img src="0.jpg" alt="uno" width="80" height="80"></button>
+		<button class="ci" value= "=" onclick="igual()"><img src="igual.gif" alt="uno" width="80" height="80"></button>
+		<button class="ci" value= "C" onclick="limpiar()"><img src="c.png" alt="uno" width="80" height="80"></button> 
+		</div>
+		<div><br><details>
+			<summary class="summa">OPERACIONES</summary>
+			        <br>
+        <button class="ope" value= "+" onclick="operaciones('+')"><img src="+.png" alt="uno" width="80" height="80"></button>
+		<button class="ope" value= "-" onclick="operaciones('-')"><img src="-.png" alt="uno" width="80" height="80"></button>
+		<button class="ope" value= "*" onclick="operaciones('*')"><img src="x.jpg" alt="uno" width="80" height="80"></button>
+		<button class="ope" value= "/" onclick="operaciones('/')"><img src="%.png" alt="uno" width="80" height="80"></button>
+    </details>
+	</div>
+	</div>
+</body>
+</html>
