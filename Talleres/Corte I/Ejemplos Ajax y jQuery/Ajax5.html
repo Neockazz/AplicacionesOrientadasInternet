@@ -1,0 +1,45 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <script>
+    function showCustomer(str)//funcion obtener contenido con AJAX (str=valor o nombre del cliente a mostrar)
+    {
+    var xmlhttp;    
+    if (str=="")
+    {
+    document.getElementById("txtHint").innerHTML="";
+    return;
+    }
+    if (window.XMLHttpRequest)
+    {
+    xmlhttp=new XMLHttpRequest();//crea objeto XMLHttpRequest en IE7+, Firefox, Chrome, Opera, Safari
+    }
+    else
+    {
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");//crea objeto XMLHttpRequest en IE6, IE5
+    }
+    xmlhttp.onreadystatechange=function()//Evento para especificar que se debe hacer cuando la respuesta del servidor esta preparada para ser procesada
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)//Si readyState==4 y status==200 quiere decir que la solicitud esta terminada y la respuesta esta lista y el estado es OK.
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;//Si la respuesta del servidor no es XML, la propiedad responseText retorna la respuesta como un String para ser usada. En este caso, la respuesta del servidor es listada y mostrada en txtHint.
+    }
+    }
+    xmlhttp.open("GET","getcustomer.asp?q="+str,true);//Especifica el tipo de solicitud, la URL, y si la solicitud debe ser manejada de forma asíncrona o no.
+    xmlhttp.send();//Envia la peticion al servidor
+    }
+    </script>
+    </head>
+    <body>
+    <form action=""> 
+    <select name="customers" onchange="showCustomer(this.value)"><!-- onchange es un evento que ocurre cuando el valor de un elemento es modificado, en este caso, cada que una opcion es escogida el valor cambia, por lo que a la funcion showcostumer se le ira actualizando el parametro de entrada (valor). -->
+    <option value="">Seleccione un cliente:</option>
+    <option value="ALFKI">Alfreds Futterkiste</option>
+    <option value="NORTS ">North/South</option>
+    <option value="WOLZA">Wolski Zajazd</option>
+    </select>
+    </form>
+    <br>
+    <div id="txtHint">La informacion obtenida sera listada aqui...</div>
+    </body>
+    </html>

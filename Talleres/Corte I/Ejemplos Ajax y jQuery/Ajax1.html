@@ -1,0 +1,32 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <script>
+    function loadXMLDoc()//funcion cambiar contenido con AJAX
+    {
+    var xmlhttp;
+    if (window.XMLHttpRequest)//crear objeto XMLHttpRequest para intercambiar informacion con el servidor detras de escena
+    {
+    xmlhttp=new XMLHttpRequest();//crea objeto XMLHttpRequest en IE7+, Firefox, Chrome, Opera, Safari 
+    }
+    else
+    {
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");//crea objeto XMLHttpRequest en IE6, IE5
+    }
+    xmlhttp.onreadystatechange=function()//Evento para especificar que se debe hacer cuando la respuesta del servidor esta preparada para ser procesada
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)//Si readyState==4 y status==200 quiere decir que la solicitud esta terminada y la respuesta esta lista y el estado es OK.
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;//Si la respuesta del servidor no es XML, la propiedad responseText retorna la respuesta como un String para ser usada. En este caso, muestra la respuesta del servidor en myDiv.
+    }
+    }
+    xmlhttp.open("GET","ajax_info.txt",true);//Especifica el tipo de solicitud, la URL, y si la solicitud debe ser manejada de forma asíncrona o no.
+    xmlhttp.send();//Envia la peticion al servidor
+    }
+    </script>
+    </head>
+    <body>
+    <div id="myDiv"><h2>Texto a ser cambiado gracias a AJAX</h2></div>
+    <button type="button" onclick="loadXMLDoc()">Cambiar contenido</button>
+    </body>
+    </html>

@@ -1,0 +1,37 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <script>
+    function loadXMLDoc(url)//funcion obtener contenido con AJAX (url=referencia a la direccion del archivo con el contenido)
+    {
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {
+    xmlhttp=new XMLHttpRequest();//crea objeto XMLHttpRequest en IE7+, Firefox, Chrome, Opera, Safari
+    }
+    else
+    {
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");//crea objeto XMLHttpRequest en IE6, IE5
+    }
+    xmlhttp.onreadystatechange=function()//Evento para especificar que se debe hacer cuando la respuesta del servidor esta preparada para ser procesada
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)//Si readyState==4 y status==200 quiere decir que la solicitud esta terminada y la respuesta esta lista y el estado es OK.
+    {
+    document.getElementById('A1').innerHTML=xmlhttp.status;//Recupera informacion del status de un archivo XML y la muestra en A1.
+    document.getElementById('A2').innerHTML=xmlhttp.statusText;//Recupera informacion del statusText de un archivo XML y la muestra en A2.
+    document.getElementById('A3').innerHTML=xmlhttp.responseText;//Recupera informacion del responseText de un archivo XML y la muestra en A3.
+    }
+    }
+    xmlhttp.open("GET",url,true);//Especifica el tipo de solicitud, la URL, y si la solicitud debe ser manejada de forma asíncrona o no.
+    xmlhttp.send();//Envia la peticion al servidor
+    }
+    </script>
+    </head>
+    <body>
+    <h2>Recuperar Informacion</h2>
+    <p><b>Status:</b><span id="A1"></span></p>
+    <p><b>Status text:</b><span id="A2"></span></p>
+    <p><b>Response:</b><span id="A3"></span></p>
+    <button onclick="loadXMLDoc('note.xml')">Obtener informacion del XML</button>
+    </body>
+    </html>

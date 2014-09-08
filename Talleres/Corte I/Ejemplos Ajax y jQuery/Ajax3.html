@@ -1,0 +1,32 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <script>
+    function loadXMLDoc(url)//funcion obtener contenido con AJAX (url=referencia a la direccion del archivo con el contenido)
+    {
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {
+    xmlhttp=new XMLHttpRequest();//crea objeto XMLHttpRequest en IE7+, Firefox, Chrome, Opera, Safari 
+    }
+    else
+    {
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");//crea objeto XMLHttpRequest en IE6, IE5
+    }
+    xmlhttp.onreadystatechange=function()//Evento para especificar que se debe hacer cuando la respuesta del servidor esta preparada para ser procesada
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)//Si readyState==4 y status==200 quiere decir que la solicitud esta terminada y la respuesta esta lista y el estado es OK.
+    {
+    document.getElementById('p1').innerHTML=xmlhttp.getAllResponseHeaders();//La funcion getAllResponseHeaders () devuelve la información de encabezado de un recurso, como la longitud, tipo de servidor, tipo de contenido, de última modificación, etc. En este caso, retorna la informacion almacenada en cada uno de los encabezados y la muestra en p1.
+    }
+    }
+    xmlhttp.open("GET",url,true);//Especifica el tipo de solicitud, la URL, y si la solicitud debe ser manejada de forma asíncrona o no.
+    xmlhttp.send();//Envia la peticion al servidor
+    }
+    </script>
+    </head>
+    <body>
+    <p id="p1">Aqui ira lo que envie el servidor</p>
+    <button onclick="loadXMLDoc('ajax_info.txt')">Obtener la informacion de encabezados</button>
+    </body>
+    </html>

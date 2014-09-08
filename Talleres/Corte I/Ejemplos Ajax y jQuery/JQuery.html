@@ -1,0 +1,272 @@
+							<!DOCTYPE html>
+							<html lang    ="en">
+							<head>
+							<meta charset ="UTF-8">
+							<title>Test JQuery</title>
+							<script src   ="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+							
+							<script> //Esconder un elemento
+							$(document).ready(function(){//Funcion JQuery para cargar una función
+							$("#dis").click(function(){//Cuando se cliquee el elemento de id dis, iniciar la funcion 
+							$(this).hide();//Metodo de jquery que permite esconder un elemento, con el this, se hace referencia al elemento de id dis referenciado en la linea anterior.
+							});
+							});
+							</script>
+							
+							<script>//Esconder un elemento (Forma diferente)
+							$(document).ready(function(){
+							$("h6").dblclick(function(){//Cuando se haga doble clic en el elemnto de tipo h6 iniciar la funcion
+							$(this).hide();//Metodo de jquery que permite esconder un elemento, con el this, se hace referencia al elemento de id dis referenciado en la linea anterior.
+							});
+							});
+							</script>
+							
+							<script>//Capturar y mostrar texto
+							$(document).ready(function(){
+							$("#boton1").click(function(){//Cuando se haga clic en el boton con id boton1 iniciar la funcion
+							alert("Text: " + $("#test").text());//Capturar el texto alojado en el elemento de id test y mostrarlo como un mensaje emergente en el navegador.
+							});
+							});
+							</script>
+							
+							<script>//Mostrar texto html
+							$(document).ready(function(){
+							$("#boton2").click(function(){//Cuando se haga clic en el boton con id boton2 iniciar la funcion
+							alert("Text: " + $("#test").html());//Capturar el texto alojado en el elemnto de id test y mostrar su contenido como si se tratase de un comando html (lo muestra con formato o sintaxis html) en un mensaje emergente.
+							});
+							});
+							</script>
+							
+							<script>//Mostrar direccion web
+							$(document).ready(function(){
+							$("#boton3").click(function(){//Cuando se haga clic en el boton con id boton3 iniciar la funcion
+							alert($("#link").attr("href"));//Muestra la direccion web alojada del elemento con id link (elemento con hipervinculo) en un mensaje emergente.
+							});
+							});
+							</script>
+							
+							<script>//Esconder y mostrar elementos
+							$(document).ready(function(){
+							$("#toggle").click(function(){//Cuando se haga clic en el boton con id toggle iniciar la funcion
+							$(".pp").toggle();//Esconde y muestra el contenido de el/los elemento(s) de clase pp.
+							});
+							});
+							</script>
+							
+							<script>//Remover elemento
+							$(document).ready(function(){
+							$("#remove").click(function(){//Cuando se haga clic en el boton con id remove iniciar la funcion
+							$("#div1").remove();//Elimina de la pagina el elemento identificado con el id div1.
+							});
+							});
+							</script>
+							
+							<script>//Vaciar contenido
+							$(document).ready(function(){
+							$("#vaciar").click(function(){//Cuando se haga clic en el boton con id vaciar iniciar la funcion
+							$("#div2").empty();//Vaciar o limpiar el contenido de un elemento identificado con el id div2.
+							});
+							});
+							</script>
+							
+							<script>//Añadir texto (contiguo)
+							$(document).ready(function(){
+							$("#AgregarT").click(function(){//Cuando se haga clic en el boton con id AgregarT iniciar la funcion
+							$(".añadird").append(" <b> Texto (Añadido)</b>.");//Añadir nuevo texto de manera contigua (final del texto) a el/los elemento(s) de clase añadird.
+							});
+							
+							$("#AgregarI").click(function(){//Cuando se haga clic en el boton con id AgregarI iniciar la funcion
+							$("#ol1").append("<li>Nuevo Item (Añadido)</li>");//Añadir nuevo item a la lista con id ol1 de manera contigua, es decir, en la ultima posicion.
+							});
+							});
+							</script>
+							
+							<script>//Añadir texto (antepuesto)
+							$(document).ready(function(){
+							$("#AgregarT1").click(function(){//Cuando se haga clic en el boton con id AgregarT1 iniciar la funcion
+							$(".añadira").prepend("<b>Texto (Antepuesto)</b>. ");//Añadir nuevo texto de manera antepuesto (principio del texto) a el/los elemento(s) de clase añadira.
+							});
+							$("#AgregarI1").click(function(){
+							$("#ol2").prepend("<li>Nuevo Item (Antepuesto)</li>");//Añadir nuevo item a la lista con id ol2 de manera antepuesta, es decir, en la primera posicion.
+							});
+							});
+							</script>
+							
+							<script>//Añadir estilo css
+							$(document).ready(function(){
+							$("#addcl").click(function(){//Cuando se haga clic en el boton con id addcl iniciar la funcion
+							$(".editcss").addClass("colorverde");//Añadir estilo css (clase) colorverde al elemento de clase editcss.
+							$("#grande").addClass("agrandar");//Añadir estilo (clase) css agrandar al elemento de id grande.
+							});
+							});
+							</script>
+							
+							<script>//Remover estilo css
+							$(document).ready(function(){
+							$("#removecl").click(function(){//Cuando se haga clic en el boton con id removecl iniciar la funcion
+							$(".colormorado").removeClass("colormorado");//Remover estilo (clase) css colormorado al elemento de clase colormorado.
+							});
+							});
+							</script>
+							
+							<script>//Añadir multiples estilos css
+							$(document).ready(function(){
+							$("#botad").click(function(){//Cuando se haga clic en el boton con id botad iniciar la funcion
+							$("#divadd").addClass("agrandar colormorado");//Añadir estilos (clases) css agrandar y colormorado al elemento de id divadd.
+							});
+							});
+							</script>
+							
+							<script>//Animar un elemento
+							$(document).ready(function(){
+							$("#animar").click(function(){//Cuando se haga clic en el boton con id animar iniciar la funcion
+							$("#anime").animate({left:'250px'});//Anima el elemento de id anime haciendolo moverse hacia la izquierda 250 pixeles
+							});
+							});
+							</script> 
+							
+							<script>//Desplegable
+							$(document).ready(function(){
+							$("#flip").click(function(){//Cuando se haga clic en el elemento con id flip iniciar la funcion
+							$("#panel").slideToggle("slow");//Hace que el elemento con id panel sea un elemento desplegable (Hacia abajo, es decir, inicia plegado)
+							});
+							});
+							</script>
+							
+							<script>//Ancho y alto del elemento
+							$(document).ready(function(){
+							$("#botwh").click(function(){//Cuando se haga clic en el boton con id botwh iniciar la funcion
+							var txt       ="";//Inicializa una variable vacia.
+							txt           +="Ancho del div: " + $("#divwh").width() + "<br>";//Concatena en la variable declarada anteriormente el ancho del elemento con id divwh gracias a la funcion width.
+							txt           +="Altura del div: " + $("#divwh").height();//Concatena en la variable declarada anteriormente el alto del elemento con id divwh gracias a la funcion height.
+							$("#divwh").html(txt);//Muestra en el elemento con id divwh los valores almacenados en la variable txt.
+							});
+							});
+							</script>
+							
+							<style>
+							.agrandar
+							{
+							font-weight:bold;
+							font-size:xx-large;
+							}
+							.colorverde
+							{
+							color:green;
+							}
+							
+							.colormorado
+							{
+							color:purple;
+							}
+							#panel,#flip
+							{
+							padding:5px;
+							text-align:center;
+							background-color:#e5eecc;
+							border:solid 1px #c3c3c3;
+							}
+							#panel
+							{
+							padding:50px;
+							display:none;
+							}
+							
+							</style>
+							
+							</head>
+							<body>
+							<div><p id    ="dis">Desaparecer este parrafo (Click)</p></div>
+							<div><h6>Desaparecer este encabezado (Doble Click)</h6></div>
+							<div><p id    ="test"><b>Capturar y mostrar este parrafo</b></p>
+							<button id    ="boton1">Capturar y Mostrar</button>
+							<button id    ="boton2">Capturar y Mostrar como HTML</button>
+							</div>
+							<div>
+							<p><a href    ="http://www.sanmartin.edu.co/" id="link">Direccion web de la universidad</a></p>
+							<button id    ="boton3">Mostrar link de la pagina</button>
+							</div>
+							<div>
+							<p class      ="pp">Parrafo 1</p>
+							<p class      ="pp">Parrafo 2</p>
+							<button id    ="toggle">Toggle (Esconder y Mostrar)</button>
+							</div>
+							<div id       ="div1" style="height:150px;width:300px;border:1px solid black;background-color:purple;">
+							<p>Parrafo 1</p>
+							<p>Parrafo 2</p>
+							<p>Parrafo 3</p>
+							<p>Parrafo 4</p>
+							</div>
+							<button id    ="remove">Remover div (Morado)</button>
+							<div id       ="div2" style="height:150px;width:300px;border:1px solid black;background-color:aqua;">
+							<p>Parrafo 1</p>
+							<p>Parrafo 2</p>
+							<p>Parrafo 3</p>
+							<p>Parrafo 4</p>
+							</div>
+							<button id    ="vaciar">Vaciar elementos div (Aguamarina)</button>
+							<div>
+							<p class      ="añadird">Parrafo 1</p>
+							<p class      ="añadird">Parrafo 2</p>
+							<ol id        ="ol1">
+							<li>Item 1</li>
+							<li>Item 2</li>
+							<li>Item 3</li>
+							</ol>
+							<button id    ="AgregarT">Añadir Texto (Parrafo)</button>
+							<button id    ="AgregarI">Añadir Item (Lista)</button></div>
+							<div>
+							<p class      ="añadira">Parrafo 1</p>
+							<p class      ="añadira">Parrafo 2</p>
+							<ol id        ="ol2">
+							<li>Item 1</li>
+							<li>Item 2</li>
+							<li>Item 3</li>
+							</ol>
+							<button id    ="AgregarT1">Añadir Texto (Parrafo)</button>
+							<button id    ="AgregarI1">Añadir Item (Lista)</button>
+							</div>
+							<div>
+							<h1 class     ="editcss">Encabezado 1</h1>
+							<h2 class     ="editcss">Encabezado 2</h2>
+							<p class      ="editcss">Parrafo 1</p>
+							<p class      ="editcss">Parrafo 2</p>
+							<div id       ="grande">Texto a Agrandar</div>
+							<br>
+							<button id    ="addcl">Editar CSS (Añadir Estilos)</button>
+							</div>
+							<div>
+							<br>
+							<h1 class     ="colormorado">Encabezado 1</h1>
+							<h2 class     ="colormorado">Encabezado 2</h2>
+							<p class      ="colormorado">Parrafo 1</p>
+							<p class      ="colormorado">Parrafo 2</p>
+							<button id    ="removecl">Editar CSS (Remover Estilos)</button>
+							</div>
+							<br>
+							<div>
+							<div id       ="divadd">Texto a Añadir Estilos :)</div>
+							<br>
+							<button id    ="botad">Añadir Varios Estilos (Clases)</button>
+							</div>
+							
+							<br>
+							<div>
+							<div id       ="flip">Click para desplegar y esconder el panel</div>
+							<div id       ="panel">Panel Desplegado</div>
+							</div>
+							<br>
+							<div>
+							<div id       ="divwh" style="height:100px;width:300px;padding:10px;margin:3px;border:1px solid black;background-color:lightgreen;"></div>
+							<br>
+							<button id    ="botwh">Mostrar dimensiones del div</button>
+							</div>
+							<div>
+							<br>
+							<button id    ="animar">Empezar Animación</button>
+							<br>
+							<div style    ="background:#98bf21;height:100px;width:100px;position:absolute;" id="anime">
+							</div>
+							</div>	
+							</body>
+							</html>
